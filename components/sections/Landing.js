@@ -28,8 +28,8 @@ const Landing = () => {
         </p>
         <div className="my-2 w-10/12">
           <p>
-            To run the app you just need to open terminal and run npm run dev in
-            terminal
+            To run the app you just need to open terminal run npm i and run npm
+            run dev in terminal
           </p>
           <p className="my-2">
             This project is using Next.js and was created with the --use-npm

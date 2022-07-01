@@ -36,7 +36,7 @@ const ConnectWalletBtn = ({
             )
           }
           className={`${
-            className ? className : "p-2 bg-green-500 w-[150px] my-2 rounded-md"
+            className ? className : "p-2 bg-green-500 w-[140px] my-2 rounded-md"
           }`}
         >
           {disconnectButtonTxt}
@@ -45,7 +45,7 @@ const ConnectWalletBtn = ({
         <button
           onClick={connectWallet}
           className={`${
-            className ? className : "p-2 bg-red-500 w-[150px] my-2 rounded-md"
+            className ? className : "p-2 bg-red-500 my-2 w-[140px] rounded-md"
           }`}
         >
           Connect Wallet

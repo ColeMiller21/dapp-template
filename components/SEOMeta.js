@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-const defaultFavicon = "../../public/images/favicon.ico";
-const defaultOGImage = "../../public/images/vercel.svg";
+const defaultFavicon = "/images/favicon.ico";
+const defaultOGImage = "/images/vercel.svg";
 const defaultTwitterHandle = "@cmxCole";
 const siteName = "dApp Template";
 const baseUrl = "";
@@ -41,7 +41,7 @@ const SEOMeta = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:site" content={`${baseUrl}${path}`} />
       <meta name="twitter:creator" content={twitterHandle} />
-      <link rel="icon" type="image/png" href={favicon} />
+      <link rel="icon" href={favicon} />
       <link rel="apple-touch-icon" href={favicon} />
       <meta property="og:image" content={ogImage} />
       <meta name="twitter:image" content={ogImage} />
