@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Quattrocento&display=swap');
+
 html,
 body {
   padding: 0;
@@ -21,9 +23,14 @@ a {
 
 :root {
 	--app-height: auto;
+  --primary-color: "";
+  --secondary-color: #3F00FF;
+  --title-color: "";
+  --link-color: black;
 }
 
 .min-full-page {
 	min-height: var(--app-height);
 }
+
 

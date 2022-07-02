@@ -1,0 +1,34 @@
+.navLink {
+    display: block;
+    position: relative;
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 0 10px; 
+  }
+  
+  .navLink:after {
+    display: block;
+    content:"";
+    position: absolute;
+    background-color: #4169e1;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+  }
+  
+  .navLink:hover {
+    color: black;
+  }
+  
+  .navLink:hover:after {
+    width: 100%;
+  }
+
+  .desktopLinkDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

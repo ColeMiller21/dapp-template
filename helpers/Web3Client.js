@@ -2,6 +2,8 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
+//options given to the web3modal
+//https://github.com/Web3Modal/web3modal
 export const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider,
@@ -40,6 +42,7 @@ export const connectWalletThruModel = async () => {
   return { provider, account, chainId };
 };
 
+//function to call metamask request change if chainId doesnt equal ftm mainnet
 export const requestChainChange = (provider) => {
   const ftmMainnet = "0xfa";
   provider.request({
@@ -48,6 +51,7 @@ export const requestChainChange = (provider) => {
   });
 };
 
+//returns number chainId instead of string so 0xfa -> 250
 export const getChainIdFromString = async (provider) => {
   if (!provider) {
     return;

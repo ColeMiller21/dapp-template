@@ -19,15 +19,23 @@ const Navbar = () => {
   const { user, connectWallet, disconnectWallet } = useContext(UserContext);
 
   return (
-    <nav className="flex w-full bg-white flex-col justify-center fixed shadow-xl px-2 ">
-      <div className="w-full flex justify-between min-h-[60px] items-center">
-        <div className="w-2/10">LOGO</div>
-        <div id="desktop-link-div" className="hidden md:block">
-          <ul className="flex">
-            {links.map((link) => {
-              return <li className="px-2 cursor-pointer">{link.name}</li>;
-            })}
-          </ul>
+    <nav className="flex w-full bg-white flex-col justify-center fixed shadow-xl px-2">
+      <div className="w-full flex justify-between min-h-[60px] items-center relative">
+        <div className="w-2/10 font-oswald">LOGO</div>
+        <div
+          id="desktop-link-div"
+          className={`hidden md:flex ${styles.desktopLinkDiv}`}
+        >
+          {links.map((link) => {
+            return (
+              <a
+                key={link.name}
+                className={`mx-2 cursor-pointer font-quatt nav-link ${styles.navLink}`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </div>
         <div className="md:hidden">
           <span
