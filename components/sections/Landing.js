@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-
+import { useAccount } from "wagmi";
 const Landing = () => {
+  const { address, isConnected } = useAccount();
   const appHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--app-height", `${window.innerHeight}px`);

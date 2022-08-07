@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState, useContext } from "react";
-import { UserContext } from "../../context/UserContext";
 import styles from "../../styles/Navbar.module.css";
-import ConnectWalletBtn from "../ConnectWalletBtn";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 
@@ -16,7 +16,6 @@ const links = [
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const router = useRouter();
-  const { user, connectWallet, disconnectWallet } = useContext(UserContext);
 
   return (
     <nav className="flex w-full bg-white flex-col justify-center fixed shadow-xl px-2">
@@ -48,12 +47,7 @@ const Navbar = () => {
           </span>
         </div>
         <div className="w-2/10 hidden md:block ">
-          {" "}
-          <ConnectWalletBtn
-            user={user}
-            connectWallet={connectWallet}
-            disconnectWallet={disconnectWallet}
-          />
+          <ConnectButton accountStatus="full" chainStatus="name" />
         </div>
       </div>
       {showNav && (
@@ -63,10 +57,12 @@ const Navbar = () => {
               return <li className="p-1 cursor-pointer">{link.name}</li>;
             })}
             <li>
-              <ConnectWalletBtn
-                user={user}
-                connectWallet={connectWallet}
-                disconnectWallet={disconnectWallet}
+              <ConnectButton
+                accountStatus={{
+                  smallScreen: "full",
+                  largeScreen: "full",
+                }}
+                chainStatus="none"
               />
             </li>
           </ul>
