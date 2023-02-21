@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
-import { useAccount } from "wagmi";
+import React, { useEffect, useState } from "react";
+import { useAccount, useContract, useContractRead, useProvider } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { ethers } from "ethers";
+import axios from "axios";
+
 const Landing = () => {
-  const { address, isConnected } = useAccount();
   const appHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--app-height", `${window.innerHeight}px`);
@@ -17,7 +20,10 @@ const Landing = () => {
       <h1 className="text-4xl">dApp Template</h1>
       <div className="my-3 bg-gray-300 p-4 w-10/12 md:w-8/12 text-center rounded-md shadow-lg flex flex-col items-center font-quatt">
         <h4 className="text-xl font-bold my-1 font-oswald">Information</h4>
-        <p>Sample dApp has connect wallet built in using web3modal package</p>
+        <p>
+          Sample dApp has connect wallet built in using rainbowkit. Wallet
+          connect will be found in helpers/walletConnect.js
+        </p>
         <div className="my-2 w-10/12">
           <p>
             To run the app you just need to open terminal run npm i and run npm
@@ -41,10 +47,10 @@ const Landing = () => {
               Nextjs
             </a>
             <a
-              href="https://www.npmjs.com/package/web3modal"
+              href="https://www.rainbowkit.com/docs/introduction"
               className="text-blue-500 m-1"
             >
-              Web3Modal
+              RainbowKit
             </a>
             <a
               href="https://tailwindcss.com/docs/installation"

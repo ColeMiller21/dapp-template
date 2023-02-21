@@ -6,13 +6,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        landingBg: "url('../public/images/bg-image/neon-sign.jpeg')",
-      },
-      fontFamily: {
-        oswald: ["Oswald", "sans-serif"],
-        quatt: ["Quattrocento", "serif"],
-      },
+      backgroundImage: {},
+      fontFamily: {},
     },
   },
   plugins: [],

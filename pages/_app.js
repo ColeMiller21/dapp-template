@@ -3,7 +3,9 @@ import Layout from "../components/layout/Layout";
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const fantomChain = {
@@ -25,7 +27,7 @@ const fantomChain = {
 };
 
 const { chains, provider } = configureChains(
-  [fantomChain],
+  [chain.mainnet, fantomChain],
   [
     jsonRpcProvider({
       priority: 0,
@@ -34,6 +36,8 @@ const { chains, provider } = configureChains(
         return { http: chain.rpcUrls.default };
       },
     }),
+    alchemyProvider({ apiKey: "OSJnQ5JMZqgm8FdLA2s9-VgexHponnEX" }),
+    publicProvider(),
   ]
 );
 
@@ -65,7 +69,7 @@ function MyApp({ Component, pageProps }) {
     return (
       <>
         <WagmiConfig client={wagmiClient}>
-          <RainbowKitProvider chains={chains} initialChain={fantomChain}>
+          <RainbowKitProvider chains={chains} initialChain={chain.mainnet}>
             <Layout>
               <Component {...pageProps} />
             </Layout>
